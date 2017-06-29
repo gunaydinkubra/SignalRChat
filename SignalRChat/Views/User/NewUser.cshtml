@@ -18,15 +18,20 @@
     </div>
 }
    
-<div class="container col-md-offset-4">
-    <h2>New User</h2>
+<div class="container col-md-offset-3 form-group">
+    <h2 style="text-emphasis-color:deepskyblue">Create New User</h2><br />
     @using (Html.BeginForm("NewUser", "User", FormMethod.Post))
     {
+        <label for="exampleInputEmail1">Name</label>
         @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Please enter your name" })<br />
+        <label for="exampleInputEmail1">Surname</label>
         @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", placeholder = "Please enter your surname" })<br />
+        <label for="exampleInputEmail1">Username</label>
         @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Please enter your username" })<br />
+        <label for="exampleInputEmail1">Password</label>
         @Html.PasswordFor(model => model.Pass, new { @class = "form-control", placeholder = "Please enter your password" })<br />
         <input id="btnSave" type="submit" class="form-control btn-info btn-md" value="Save" /><br />
     }
+  
 </div>
 

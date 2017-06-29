@@ -1,0 +1,23 @@
+﻿@model SignalRChat.Models.LoginModel
+@{
+    ViewBag.Title = "Login";
+}
+<div style="height:80px" class="col-md-12"></div>
+@if (ViewData["Warning"] != null)
+{
+    <div class="alert alert-warning alert-dismissable">
+        <text>@ViewData["Warning"]</text>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
+}
+<div class="container col-md-offset-4">
+    <h2>Login Space</h2>
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.UserName, new { @class="form-control", placeholder = "Please enter user name" })<br />
+        @Html.TextBoxFor(model => model.Pass, new  {@class="form-control", type="password" })<br />
+        <input id="btnLogin" type="submit" class="form-control btn-info btn-md" value="Log in" /><br />
+        <a href="/User/NewUser"><input id="btnNew" type="button" class="form-control btn-danger btn-md" value="Sign Up" /></a>
+    }
+   
+</div>

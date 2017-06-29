@@ -27,14 +27,15 @@ namespace SignalRChat.Controllers
                             var userModel = db.GetUser(data.UserName);
                             if (userModel != null)
                             {
-
                                 ViewData["Warning"] = $"{data.UserName} is available in our system.";
-
                             }
                             else
                             {
                                 db.Add(data);
+                                ModelState.Clear();
                                 ViewData["Success"] = $"Successfull! Your information is saved. ";
+
+                                return View();
                             }
 
                         }
@@ -62,7 +63,7 @@ namespace SignalRChat.Controllers
             }
             
 
-            return View();
+            return View(data);
 
         }
     }

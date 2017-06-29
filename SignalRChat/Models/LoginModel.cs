@@ -9,9 +9,10 @@ namespace SignalRChat.Models
 {
     public class LoginModel
     {
-        [BsonElement("Name")]
+        [BsonElement("UserName")]
         public string UserName { get; set; }
         [BsonElement("Pass")]
         public string Pass { get; set; }
+       
     }
 }

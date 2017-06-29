@@ -1,0 +1,32 @@
+﻿@model SignalRChat.Models.UsersModel
+@{
+    ViewBag.Title = "NewUser";
+}
+<div style="height:80px" class="col-md-12"></div>
+@if (ViewData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissable">
+        <text>@ViewData["Success"]</text>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
+}
+@if (ViewData["Warning"] != null)
+{
+    <div class="alert alert-warning alert-dismissable">
+        <text>@ViewData["Warning"]</text>
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    </div>
+}
+   
+<div class="container col-md-offset-4">
+    <h2>New User</h2>
+    @using (Html.BeginForm("NewUser", "User", FormMethod.Post))
+    {
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "Please enter your name" })<br />
+        @Html.TextBoxFor(model => model.Surname, new { @class = "form-control", placeholder = "Please enter your surname" })<br />
+        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control", placeholder = "Please enter your username" })<br />
+        @Html.PasswordFor(model => model.Pass, new { @class = "form-control", placeholder = "Please enter your password" })<br />
+        <input id="btnSave" type="submit" class="form-control btn-info btn-md" value="Save" /><br />
+    }
+</div>
+
